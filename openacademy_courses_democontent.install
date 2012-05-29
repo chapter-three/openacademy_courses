@@ -1,0 +1,66 @@
+<?php
+
+/**
+ * Implementation of hook_install()
+ */
+function openacademy_courses_democontent_install() {
+
+}
+
+
+/**
+ * Callback to get default taxonomy terms
+ */
+function openacademy_courses_democontent_get_terms() {
+  return array(
+    'Lecture' => '70fd8190-6659-11e1-b86c-0800200c9a66',
+    'Seminar' => 'e75596c7-805f-45af-acd0-aa1472b4cf8f',
+    'Lab' => 'f8c6adc6-5153-47d4-bbae-86cf71899032',
+    'Independent Study' => 'd58d3c97-8ea0-43b4-a5e0-81bae1b36894',
+  );
+}
+
+/**
+ * Implementation of hook_init()
+ */
+function openacademy_courses_democontent_init() {
+
+  // Install the taxonomy terms after features has already been installed. Pattern from Open Enterprise. 
+  if (!variable_get('openacademy_courses_democontent_installed', FALSE) && $vocab = taxonomy_vocabulary_machine_name_load('openacademy_course_type')) {
+
+    // Add default taxonomy terms
+    $course_types = openacademy_courses_democontent_get_terms();
+    foreach($course_types as $course_type => $event_uuid) {
+
+      // Add the term 
+      $term = new stdClass;
+      $term->vid = $vocab->vid;
+      $term->uuid = $event_uuid;
+      $term->name = $course_type;
+      $term->vocabulary_machine_name = 'openacademy_course_type';
+      taxonomy_term_save($term);
+    }
+
+    // Set installed bit to prevent this from running again
+    variable_set('openacademy_courses_democontent_installed', TRUE);
+  }
+}
+
+/**
+ * Implementation of hook_uninstall()
+ */
+function openacademy_courses_democontent_uninstall() {
+
+  // Delete existing terms
+  $course_types = openacademy_courses_democontent_get_terms();
+  foreach($course_types as $course_type) {
+    foreach (taxonomy_get_term_by_name($course_type) as $term) {
+      if (isset($term->tid)) {
+        taxonomy_term_delete($term->tid);
+      }
+    }
+  }
+
+  // Set installed option
+  variable_set('openacademy_courses_democontent_installed', FALSE);
+}
