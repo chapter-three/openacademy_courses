@@ -303,7 +303,7 @@ function openacademy_courses_views_default_views() {
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['ui_name'] = 'Title';
-  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['label'] = 'Title';
   $handler->display->display_options['fields']['title']['alter']['alter_text'] = 0;
   $handler->display->display_options['fields']['title']['alter']['make_link'] = 0;
   $handler->display->display_options['fields']['title']['alter']['absolute'] = 0;
@@ -328,7 +328,7 @@ function openacademy_courses_views_default_views() {
   $handler->display->display_options['fields']['field_course_number']['table'] = 'field_data_field_course_number';
   $handler->display->display_options['fields']['field_course_number']['field'] = 'field_course_number';
   $handler->display->display_options['fields']['field_course_number']['ui_name'] = 'Course Number';
-  $handler->display->display_options['fields']['field_course_number']['label'] = '';
+  $handler->display->display_options['fields']['field_course_number']['label'] = 'Course Number';
   $handler->display->display_options['fields']['field_course_number']['alter']['alter_text'] = 0;
   $handler->display->display_options['fields']['field_course_number']['alter']['make_link'] = 0;
   $handler->display->display_options['fields']['field_course_number']['alter']['absolute'] = 0;
@@ -353,7 +353,7 @@ function openacademy_courses_views_default_views() {
   $handler->display->display_options['fields']['field_course_term']['table'] = 'field_data_field_course_term';
   $handler->display->display_options['fields']['field_course_term']['field'] = 'field_course_term';
   $handler->display->display_options['fields']['field_course_term']['ui_name'] = 'Term';
-  $handler->display->display_options['fields']['field_course_term']['label'] = '';
+  $handler->display->display_options['fields']['field_course_term']['label'] = 'Term';
   $handler->display->display_options['fields']['field_course_term']['alter']['alter_text'] = 0;
   $handler->display->display_options['fields']['field_course_term']['alter']['make_link'] = 0;
   $handler->display->display_options['fields']['field_course_term']['alter']['absolute'] = 0;
@@ -379,7 +379,7 @@ function openacademy_courses_views_default_views() {
   $handler->display->display_options['fields']['field_course_time']['table'] = 'field_data_field_course_time';
   $handler->display->display_options['fields']['field_course_time']['field'] = 'field_course_time';
   $handler->display->display_options['fields']['field_course_time']['ui_name'] = 'Time';
-  $handler->display->display_options['fields']['field_course_time']['label'] = '';
+  $handler->display->display_options['fields']['field_course_time']['label'] = 'Time';
   $handler->display->display_options['fields']['field_course_time']['alter']['alter_text'] = 0;
   $handler->display->display_options['fields']['field_course_time']['alter']['make_link'] = 0;
   $handler->display->display_options['fields']['field_course_time']['alter']['absolute'] = 0;
